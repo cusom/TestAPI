@@ -3,9 +3,8 @@ name: Azure SWA Staging
 on:
   push:
     branches:
-      - "**"
-    branches-ignore:
-      - main
+      - '**'
+      - '!main'
 
 jobs:
   build_and_deploy_job:
