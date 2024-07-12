@@ -34,7 +34,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
           production_branch: "main"
           deployment_environment: "staging"
-    build_and_deploy_pull_request_job:
+  build_and_deploy_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
