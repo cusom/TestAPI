@@ -25,7 +25,33 @@
 				"SOM-TEST": "TestingAbout"
 			}
 		}
+		,
+		{
+			"route": "/anonymous/*",
+			"allowedRoles": ["anonymous"]
+		}
+		,
+		{
+			"route": "/authenticated/*",
+			"allowedRoles": ["authenticated"]
+		}
+		,
+		{
+			"route": "/admin/*",
+			"allowedRoles": ["admin"]
+		}
 	],
+	"auth": {
+		"identityProviders": {
+		"azureActiveDirectory": {
+			"registration": {
+			"openIdIssuer": "https://login.microsoftonline.com/563337ca-a517-421a-aae0-1aa5b414fd7f/v2.0",
+			"clientIdSettingName": "AZURE_CLIENT_ID",
+			"clientSecretSettingName": "AZURE_CLIENT_SECRET"
+			}
+		}
+		}
+	},
 	"globalHeaders": {
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Methods": "GET, OPTIONS",
