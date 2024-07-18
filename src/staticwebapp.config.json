@@ -69,6 +69,10 @@
 		"401": {
 		"rewrite": "/NotAuthorized.html",
 		"statusCode": 401
+		},
+		"403": {
+		"rewrite": "/NotAuthorized.html",
+		"statusCode": 403
 		}
 	},
 	"auth": {
