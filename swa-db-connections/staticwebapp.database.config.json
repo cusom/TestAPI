@@ -56,7 +56,7 @@
             "role": "anonymous",
             "actions": [
               {
-                "action": "read"
+                "action": "*"
               }
             ]
           }
@@ -87,7 +87,7 @@
             "role": "authenticated",
             "actions": [
               {
-                "action": "read"
+                "action": "*"
               }
             ]
           }
