@@ -15,8 +15,7 @@
 				"content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'; connect-src '*'",
 				"SOM-TEST": "TestingAPI"
 			}
-		}
-		,
+		},
 		{
 			"route": "/about/*",
 			"headers": {
@@ -24,32 +23,41 @@
 				"content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'; connect-src '*'",
 				"SOM-TEST": "TestingAbout"
 			}
-		}
-		,
+		},
 		{
 			"route": "/anonymous/*",
-			"allowedRoles": ["anonymous"]
-		}
-		,
+			"allowedRoles": [
+				"anonymous"
+			]
+		},
 		{
 			"route": "/authenticated/*",
-			"allowedRoles": ["authenticated"]
-		}
-		,
+			"allowedRoles": [
+				"authenticated"
+			]
+		},
 		{
 			"route": "/admin/*",
-			"allowedRoles": ["admin"]
+			"allowedRoles": [
+				"admin"
+			]
 		}
 	],
+	"responseOverrides": {
+		"401": {
+			"statusCode": 302,
+			"redirect": "/.auth/login/aad"
+		}
+	},
 	"auth": {
 		"identityProviders": {
-		"azureActiveDirectory": {
-			"registration": {
-			"openIdIssuer": "https://login.microsoftonline.com/563337ca-a517-421a-aae0-1aa5b414fd7f/v2.0",
-			"clientIdSettingName": "AZURE_CLIENT_ID",
-			"clientSecretSettingName": "AZURE_CLIENT_SECRET"
+			"azureActiveDirectory": {
+				"registration": {
+					"openIdIssuer": "https://login.microsoftonline.com/563337ca-a517-421a-aae0-1aa5b414fd7f/v2.0",
+					"clientIdSettingName": "AZURE_CLIENT_ID",
+					"clientSecretSettingName": "AZURE_CLIENT_SECRET"
+				}
 			}
-		}
 		}
 	},
 	"globalHeaders": {
