@@ -85,7 +85,7 @@
 	"globalHeaders": {
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Methods": "GET, OPTIONS",
-		"Cache-Control": "no-cache",
+		"Cache-Control": "public, no-store, max-age=0, s-maxage=0, no-cache",
 		"SOM-TEST": "Testing"
 	}
 }
