@@ -1,66 +1,130 @@
 {
-    "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.10.23/dab.draft.schema.json",
-    "data-source": {
-      "database-type": "mssql",
-      "connection-string": "@env('my-connection-string')",
-      "options": {
-        "set-session-context": false
-      }
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.10.23/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "@env('my-connection-string')",
+    "options": {
+      "set-session-context": false
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api",
+      "request-body-strict": true
     },
-    "runtime": {
-      "rest": {
-        "enabled": true,
-        "path": "/api",
-        "request-body-strict": true
+    "graphql": {
+      "enabled": false,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [
+          "https://localhost"
+        ],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "production"
+    }
+  },
+  "entities": {
+    "Country": {
+      "source": {
+        "object": "dbo.Country",
+        "type": "table",
+        "key-fields": [
+          "CountryID"
+        ]
       },
       "graphql": {
         "enabled": false,
-        "path": "/graphql",
-        "allow-introspection": true
+        "type": {
+          "singular": "Country",
+          "plural": "Countries"
+        }
       },
-      "host": {
-        "cors": {
-          "origins": [
-            "https://localhost"
-          ],
-          "allow-credentials": false
-        },
-        "authentication": {
-          "provider": "StaticWebApps"
-        },
-        "mode": "production"
-      }
-    },
-    "entities": {
-      "Country": {
-        "source": {
-          "object": "dbo.Country",
-          "type": "table",
-          "key-fields": [
-            "CountryID"
-          ]
-        },
-        "graphql": {
-          "enabled": false,
-          "type": {
-            "singular": "Country",
-            "plural": "Countries"
-          }
-        },
-        "rest": {
-          "enabled": true,
-          "methods": [ "get" ]
-        },
-        "permissions": [
-          {
-            "role": "anonymous",
-            "actions": [
-              {
-                "action": "*"
-              }
-            ]
-          }
+      "rest": {
+        "enabled": true,
+        "methods": [
+          "get"
         ]
-      }
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "*"
+            }
+          ]
+        }
+      ]
+    },
+    "Color": {
+      "source": {
+        "object": "dbo.Color",
+        "type": "table",
+        "key-fields": [
+          "ColorID"
+        ]
+      },
+      "graphql": {
+        "enabled": false,
+        "type": {
+          "singular": "Color",
+          "plural": "Colors"
+        }
+      },
+      "rest": {
+        "enabled": true,
+        "methods": [
+          "get"
+        ]
+      },
+      "permissions": [
+        {
+          "role": "authenticated",
+          "actions": [
+            {
+              "action": "*"
+            }
+          ]
+        }
+      ]
+    },
+    "Shape": {
+      "source": {
+        "object": "dbo.Shape",
+        "type": "table",
+        "key-fields": [
+          "ShapeID"
+        ]
+      },
+      "graphql": {
+        "enabled": false,
+        "type": {
+          "singular": "Shape",
+          "plural": "Shapes"
+        }
+      },
+      "rest": {
+        "enabled": true,
+        "methods": [
+          "get"
+        ]
+      },
+      "permissions": [
+        {
+          "role": "admin",
+          "actions": [
+            "read"
+          ]
+        }
+      ]
     }
   }
+}

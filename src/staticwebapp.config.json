@@ -61,14 +61,7 @@
 			]
 		}
 	],
-	"responseOverrides": {
-		"401": {
-			"rewrite": "/NotAuthorized.html"
-		},
-		"404": {
-			"rewrite": "/PageNotFound.html"
-		}
-	},
+	
 	"auth": {
 		"identityProviders": {
 			"azureActiveDirectory": {
