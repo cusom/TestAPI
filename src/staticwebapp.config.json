@@ -61,7 +61,16 @@
 			]
 		}
 	],
-	
+	"responseOverrides": {
+		"404": {
+		"rewrite": "/PageNotFound.html",
+		"statusCode": 404
+		},
+		"401": {
+		"rewrite": "/NotAuthorized.html",
+		"statusCode": 401
+		}
+	},
 	"auth": {
 		"identityProviders": {
 			"azureActiveDirectory": {
