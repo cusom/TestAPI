@@ -63,8 +63,10 @@
 	],
 	"responseOverrides": {
 		"401": {
-			"statusCode": 302,
-			"redirect": "/.auth/login/aad"
+			"rewrite": "/NotAuthorized.html"
+		},
+		"404": {
+			"rewrite": "/PageNotFound.html"
 		}
 	},
 	"auth": {
