@@ -56,11 +56,77 @@
             "role": "anonymous",
             "actions": [
               {
+                "action": "read"
+              }
+            ]
+          }
+        ]
+      },
+
+      "Color": {
+        "source": {
+          "object": "dbo.Color",
+          "type": "table",
+          "key-fields": [
+            "ColorID"
+          ]
+        },
+        "graphql": {
+          "enabled": false,
+          "type": {
+            "singular": "Color",
+            "plural": "Colors"
+          }
+        },
+        "rest": {
+          "enabled": true,
+          "methods": [ "get" ]
+        },
+        "permissions": [
+          {
+            "role": "authenticated",
+            "actions": [
+              {
+                "action": "read"
+              }
+            ]
+          }
+        ]
+      },
+      "Shape": {
+        "source": {
+          "object": "dbo.Shape",
+          "type": "table",
+          "key-fields": [
+            "ShapeID"
+          ]
+        },
+        "graphql": {
+          "enabled": false,
+          "type": {
+            "singular": "Shape",
+            "plural": "Shapes"
+          }
+        },
+        "rest": {
+          "enabled": true,
+          "methods": [ "get" ]
+        },
+        "permissions": [
+          {
+            "role": "admin",
+            "actions": [
+              {
                 "action": "*"
               }
             ]
           }
         ]
       }
+
+
+
+
+
     }
   }

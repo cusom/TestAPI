@@ -25,6 +25,24 @@
 			}
 		},
 		{
+			"route": "/country/*",
+			"allowedRoles": [
+				"anonymous"
+			]
+		},
+		{
+			"route": "/color/*",
+			"allowedRoles": [
+				"anonymous"
+			]
+		},
+		{
+			"route": "/shape/*",
+			"allowedRoles": [
+				"anonymous"
+			]
+		},
+		{
 			"route": "/anonymous/*",
 			"allowedRoles": [
 				"anonymous"
