@@ -6,6 +6,34 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/styles.css">
 	<title>SOM Test API</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var settings = {
+				"url": "/.auth/me",
+				"method": "GET",
+				"timeout": 0,
+			};
+			$.ajax(settings).done(function (response) {
+				if (response.clientPrincipal == null) {
+					$("#logout").hide();
+					$("#login").show();
+				}
+				else {
+					$("#login").hide();
+					$("#logout").show();
+					$("#result").text(response.clientPrincipal.userDetails);
+				}
+				/*for (var key in response[0]["user_claims"]) {
+					var obj = response[0]["user_claims"][key];
+					alert(obj["typ"]);   //claim type in user_claims
+					alert(obj["val"])    //claim value in user_claims                 
+				}*/
+			}).fail(function (response) {
+				alert("fail");
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -16,8 +44,9 @@
 		<hr />
 		<h4>Authentication Testing</h4>
 		<div>
-			<a href="/.auth/login/aad">Login</a>
-			<a href="/.auth/logout">Logout</a>
+			<a href="/.auth/login/aad" id="login" style="display: none;">Login</a>
+			<a href="/.auth/logout" id="logout" style="display: none;">Logout</a>
+			<small id="result" style="color:lightslategrey;"></small>
 		</div>
 		<div>
 			<ul>
@@ -27,23 +56,24 @@
 			</ul>
 		</div>
 		<hr />
-		&copy; 2024
-		<hr />
-		<p><small>changelog</small></p>
-		<ul>
-			<li>Cleaned up branches</li>
-			<li>Added Feature Branch</li>
-			<li>Updated YAML Configuration</li>
-			<li>Testing a new feature branch</li>
-			<li>Split YAML files</li>
-			<li>Updating main directly</li>
-			<li>New footer udpate</li>
-			<li>Added AAD Login</li>
-			<li>Custom Response Code Pages</li>
-			<li>Deployment Test</li>
-			<li>Deployment Test 2</li>
-			<li>Deployment Test 3</li>
-		</ul>
+		<div>
+			<h4>Changelog</h4>
+			<ul>
+				<li>Cleaned up branches</li>
+				<li>Added Feature Branch</li>
+				<li>Updated YAML Configuration</li>
+				<li>Testing a new feature branch</li>
+				<li>Split YAML files</li>
+				<li>Updating main directly</li>
+				<li>New footer udpate</li>
+				<li>Added AAD Login</li>
+				<li>Custom Response Code Pages</li>
+				<li>Deployment Test</li>
+				<li>Deployment Test 2</li>
+				<li>Deployment Test 3</li>
+				<li>Added Authentication Check</li>
+			</ul>
+		</div>
 	</main>
 </body>
 
