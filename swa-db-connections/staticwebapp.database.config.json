@@ -20,9 +20,7 @@
     },
     "host": {
       "cors": {
-        "origins": [
-          "https://localhost"
-        ],
+        "origins": ["https://localhost"],
         "allow-credentials": false
       },
       "authentication": {
